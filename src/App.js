@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TodoList from './components/ui/todo-list/TodoList';
+import StateProvider from './components/wrappers/StateProvider';
+import KeyStrokeHandler from './components/wrappers/KeyStrokeHandler';
+import 'bootstrap/dist/css/bootstrap.css';
+import './assets/style/index.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StateProvider>
+      <KeyStrokeHandler>
+        <TodoList />
+      </KeyStrokeHandler>
+    </StateProvider>
   );
 }
 
